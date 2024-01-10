@@ -1,0 +1,13 @@
+{% extends "base/_base.html" %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="page">
+    {% include "base/components/navbar.html" %}
+    <main class="main">
+        {% include "base/components/sidebar.html" %}
+
+        {% block main %}{% endblock %}
+    </main>
+</div>
+{% endblock %}

@@ -7,6 +7,8 @@ name = "pypi"
 django = "*"
 django-jazzmin = "*"
 psycopg = {extras = ["binary"], version = "*"}
+pillow = "*"
+django-widget-tweaks = "*"
 
 [dev-packages]
 
