@@ -9,6 +9,8 @@ django-jazzmin = "*"
 psycopg = {extras = ["binary"], version = "*"}
 pillow = "*"
 django-widget-tweaks = "*"
+django-crispy-forms = "*"
+crispy-bootstrap5 = "*"
 
 [dev-packages]
 

@@ -1,0 +1,10 @@
+{% extends "base/authentication.html" %}
+{% block title %}Connexion{% endblock %}
+{% load crispy_forms_tags %}
+{% block main %}
+<form method="post">
+    {% csrf_token %}{{ form|crispy }}
+    <p>Vous n'avez pas de compte? <a href="/register">Créez-en un ici.</a></p>
+    <button type="submit">Connexion</button>
+</form>
+{% endblock %}
