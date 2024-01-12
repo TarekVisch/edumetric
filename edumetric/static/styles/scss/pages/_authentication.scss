@@ -3,32 +3,43 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
 
-.auth-container {
-  display: flex;
-  gap: 3rem;
-}
+  &-container {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+  }
 
-.auth-container form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
+  &-form {
+    min-width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 
-.auth-bottom-text {
-  font-size: 1.4rem;
-}
+    h1 {
+      font-size: 3.2rem;
+      font-weight: 500;
+      color: $color-main;
+    }
+  }
 
-.auth-container form button {
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #1877f2;
-  color: #ffffff;
-  font-weight: 500;
-  border: 0;
-  border-radius: 4px;
-  cursor: pointer;
+  &-error {
+    padding: 1rem;
+    border: 1px solid $color-red;
+    background-color: rgba($color-red, .2);
+    color: $color-red;
+    font-weight: 500;
+    font-size: 1.5rem;
+    border-radius: 4px;
+    display: none;
+  }
+
+  &-buttons {
+    display: flex;
+  }
+
+  &-link {
+    font-size: 1.5rem;
+    color: $color-gray-600;
+  }
 }
