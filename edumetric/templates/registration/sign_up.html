@@ -1,10 +1,53 @@
-{% extends "base/authentication.html" %}
-{% block title %}Connexion{% endblock %}
-{% load crispy_forms_tags %}
-{% block main %}
-<form method="post">
-    {% csrf_token %}{{ form|crispy }}
-    <p>Avez vous un compte? <a href="/register">Connexion!</a></p>
-    <button type="submit">Inscription</button>
-</form>
+{% extends "base/authentication.html" %} {% block title %}Connexion{% endblock%}
+{% load static %} {% block main %}
+<div class="auth-container">
+  <img src="{% static 'images/signup-image.jpg' %}" alt="" />
+  <form method="post">
+    <h1>Inscription</h1>
+    {% csrf_token %}
+    <div class="tab">
+      <div class="input-wrapper">
+        <input type="text" id="input" required />
+        <label for="input" class="placeholder">Email</label>
+      </div>
+    </div>
+
+    <div class="tab">
+      <div class="input-wrapper">
+        <input type="text" id="input" required />
+        <label for="input" class="placeholder">Prénom</label>
+      </div>
+      <div class="input-wrapper">
+        <input type="text" id="input" required />
+        <label for="input" class="placeholder">Nom</label>
+      </div>
+    </div>
+
+    <div class="tab">
+      <div class="input-wrapper">
+        <input type="text" id="input" required />
+        <label for="input" class="placeholder">Adresse mail</label>
+      </div>
+      <div class="input-wrapper">
+        <input type="password" id="input" required />
+        <label for="input" class="placeholder">Mot de passe</label>
+      </div>
+      <div class="input-wrapper">
+        <input type="password" id="input" required />
+        <label for="input" class="placeholder"
+          >Confirmation du mot de passe</label
+        >
+      </div>
+    </div>
+
+    <div class="wizard-button">
+      <button id="prevBtn" type="button">Précédent</button>
+      <button id="nextBtn" type="button">Suivant</button>
+    </div>
+
+    <p class="auth-bottom-text">
+      Avez vous un compte? <a href="/login">Connexion.</a>
+    </p>
+  </form>
+</div>
 {% endblock %}

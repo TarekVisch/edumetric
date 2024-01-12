@@ -1,35 +1,34 @@
 {% load static %}
 <nav class="navbar">
-    <div class="navbar-logo">
-        <a href="/">
-            <img src="{% static 'images/logo.svg' %}" alt="Edumetric">
-        </a>
-    </div>
+  <div class="navbar-logo">
+    <a href="/">
+      <img src="{% static 'images/logo.svg' %}" alt="Edumetric" />
+    </a>
+  </div>
 
-    <ul class="navbar-list">
-        <li class="navbar-item">
-            <a href="/" class="navbar-link">Comment ça marche</a>
-        </li>
-        <li class="navbar-item">
-            <a href="/" class="navbar-link">Notre mission</a>
-        </li>
-        <li class="navbar-item">
-            <a href="/" class="navbar-button navbar-button-secondary">Connexion</a>
-        </li>
-        <li class="navbar-item">
-            <a href="/" class="navbar-button navbar-button-main">Inscription</a>
-        </li>
+  <ul class="navbar-list">
+{% comment %}     <li class="navbar-item">
+      <a href="/" class="btn btn-nav">Comment ça marche</a>
+    </li>
+    <li class="navbar-item">
+      <a href="/" class="btn btn-nav">Notre mission</a>
+    </li>
+    <li class="navbar-item">
+      <a href="/" class="btn btn-secondary">Connexion</a>
+    </li>
+    <li class="navbar-item">
+      <a href="/" class="btn btn-main">Inscription</a>
+    </li> {% endcomment %}
 
-        <li class="navbar-item">
-            <button type="button" class="navbar-button-icon">
-                <img src="{% static 'images/icons/notifications.svg' %}" alt="User"/>
-            </button>
-        </li>
-        <li class="navbar-item">
-            <button type="button" class="navbar-button-user">
-                <img src="{% static 'images/icons/profile.jpg' %}" alt="User"/>
-            </button>
-        </li>
-
-    </ul>
+    <li class="navbar-item">
+      <button type="button" class="btn btn-icon">
+        <img src="{% static 'images/icons/notifications.svg' %}" alt="User" />
+      </button>
+    </li>
+    <li class="navbar-item">
+      <button type="button" class="btn btn-img">
+        <img src="{% static 'images/icons/profile.jpg' %}" alt="User" />
+      </button>
+    </li>
+  </ul>
 </nav>

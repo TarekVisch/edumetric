@@ -1,3 +1,7 @@
+# CSS #
+*.scss
+main.css.map
+
 # Django #
 *.log
 *.pot

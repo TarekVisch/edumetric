@@ -1,6 +1,12 @@
-{%extends "base/_base.html" %}
+{%extends "base/_base.html" %} 
 
 {% block content %}
-HI there
-{% block main %}{% endblock %}
+<div class="page">
+    <div class="main">
+        <div class="auth">
+            {% block main %}{% endblock %}
+        </div>
+    </div>
+    {% include "base/components/footer.html" %}
+</div>
 {% endblock %}
