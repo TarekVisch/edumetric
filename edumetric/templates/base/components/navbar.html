@@ -7,19 +7,20 @@
   </div>
 
   <ul class="navbar-list">
-{% comment %}     <li class="navbar-item">
+    <li class="navbar-item">
       <a href="/" class="btn btn-nav">Comment ça marche</a>
     </li>
     <li class="navbar-item">
       <a href="/" class="btn btn-nav">Notre mission</a>
     </li>
     <li class="navbar-item">
-      <a href="/" class="btn btn-secondary">Connexion</a>
+      <a href="/accounts/login" class="btn btn-secondary">Connexion</a>
     </li>
     <li class="navbar-item">
-      <a href="/" class="btn btn-main">Inscription</a>
-    </li> {% endcomment %}
+      <a href="/accounts/signup" class="btn btn-main">Inscription</a>
+    </li>
 
+    {% comment %}
     <li class="navbar-item">
       <button type="button" class="btn btn-icon">
         <img src="{% static 'images/icons/notifications.svg' %}" alt="User" />
@@ -30,5 +31,6 @@
         <img src="{% static 'images/icons/profile.jpg' %}" alt="User" />
       </button>
     </li>
+    {% endcomment %}
   </ul>
 </nav>

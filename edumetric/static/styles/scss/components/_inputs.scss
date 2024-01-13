@@ -3,25 +3,22 @@
     position: relative;
     display: flex;
     flex-direction: column;
-  }
 
-  &-text,
-  &-select {
-    font: inherit;
-    background-color: transparent;
-    border: 1.5px solid $color-gray-400;
-    border-radius: 4px;
-    height: 45px;
-    font-size: 1.7rem;
-    padding: 1rem 1.5rem;
+    input,
+    select {
+      font: inherit;
+      background-color: transparent;
+      border: 1.5px solid $color-gray-400;
+      border-radius: 4px;
+      height: 45px;
+      font-size: 1.7rem;
+      padding: 1rem 1.5rem;
 
-    &:focus {
-      outline: none;
-      border-color: $color-main;
+      &:focus {
+        outline: none;
+        border-color: $color-main;
+      }
     }
-  }
-
-  &-text {
   }
 
   &-select {
@@ -44,10 +41,8 @@
     cursor: text;
   }
 
-  &-text:focus + &-label,
-  &-select:focus + &-label,
-  &-text:valid + &-label,
-  &-select:valid + &-label {
+  input:focus + &-label,
+  input:valid + &-label {
     top: 0%;
     font-size: 1.3rem;
   }

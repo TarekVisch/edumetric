@@ -1,6 +1,71 @@
-{% extends "base/home.html" %}
+{% extends "base/home.html" %} 
 {% block title%}Home{% endblock %}
-
+{% load static %}
 {% block main%}
-Hi there
+    <section class="home-hero">
+        <div class="home-hero-container">
+            <h1>
+                <span>Construit pour les realites de la classe</span>
+                <span>Examen en ligne</span>
+                <span>simple et puissants</span>
+            </h1>
+            <p>
+                Facile de commencer et intuitif à utiliser. Exam.net vous offre tout ce dont
+                vous avez besoin pour créer des examens pour vos étudiants. Créez et faites
+                passer votre premier examen en moins d'une heure.
+            </p>
+            <button class="btn btn-main">Inscrivez-vous</button>
+        </div>
+    </section>
+    <section class="home-why">
+        <h2>Pourquoi choisir Edumetric?</h2>
+        <div class="home-why-grid">
+            <a href="/how-it-works">
+                <img src="{% static 'images/icons/how-it-works-1.png' %}" alt="" />
+                <h3>Tout ce qu'il vous faut</h3>
+                <p>Créez des examens complets avec des outils puissants, d'emploi facile et rapides à appliquer.</p>
+            </a>
+            <a href="/how-it-works">
+                <img src="{% static 'images/icons/how-it-works-2.png' %}" alt="" />
+                <h3>Faites simple</h3>
+                <p>Faites passer des examens avec confiance et sous contrôle grâce à notre logiciel intuitif qui simplifie tout l'aspect technique.</p>
+            </a>
+            <a href="/how-it-works">
+                <img src="{% static 'images/icons/how-it-works-3.png' %}" alt="" />
+                <h3>Adapté aux étudiants</h3>
+                <p>Adaptez les examens pour répondre aux besoins individuels afin que chaque étudiant bénéficie des meilleures conditions possibles.</p>
+            </a>
+        </div>
+    </section>
+    <section class="home-motivation">
+        <div class="home-motivation-container">
+            <img src="{% static 'images/motivation-1.png'%}" alt="">
+            <div>
+                <h2>
+                    86% des professeurs disent que Exam.net leur fait <span>économiser du temps.</span>
+                </h2>
+                <div>
+                    <img src="{% static 'images/icons/check.svg' %}" alt="">
+                    <p>
+                        Les <span>examens auto-corrigés</span> vous permettent de gagner du temps afin de vous 
+                        concentrer sur des tâches plus importantes et de fournir rapidement 
+                        du feedback à vos étudiants.
+                    </p>
+                </div>
+                <div>
+                    <img src="{% static 'images/icons/check.svg' %}" alt="">
+                    <p>
+                        Fini le temps perdu à déchiffrer une écriture désordonnée pour des questions et des essais longs.
+                    </p>
+                </div>
+                <div>
+                    <img src="{% static 'images/icons/check.svg' %}" alt="">
+                    <p>
+                        <span>Bibliothèque individuelle de questions</span> - en utilisant les questions des examens précédents, 
+                        vous pouvez créer rapidement de nouvelles évaluations.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}
