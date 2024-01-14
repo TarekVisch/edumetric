@@ -1,0 +1,48 @@
+{% extends "base/authentication.html" %}
+{% block title %}Connexion{% endblock%}
+{% load widget_tweaks %}
+{% load static %}
+{% block main %}
+<div class="auth-container">
+  <img src="{% static 'images/signup-image.jpg' %}" alt="" />
+  <form method="POST" autocomplete="off" enctype="multipart/form-data" class="auth-form">
+    {% csrf_token %}
+    <h1>Inscription des étudiants</h1>
+    <div class="input-wrapper">
+      {% render_field userForm.first_name|attr:'required:true' class="input-text" placeholder="" %}
+      <label for="id_first_name" class="input-label">prénom</label>
+    </div>
+    <div class="input-wrapper">
+      {% render_field userForm.last_name|attr:'required:true'  class="input-text" placeholder="" %}
+      <label for="id_last_name" class="input-label">Nom</label>
+    </div>
+
+    <div class="input-wrapper">
+      {% render_field studentForm.mobile|attr:'required:true'  class="input-text" placeholder="" %}
+      <label for="id_mobile" class="input-label">Numéro de contact</label>
+    </div>
+    <div class="input-wrapper">
+      {% render_field studentForm.address|attr:'required:true'  class="input-text" placeholder="" %}
+      <label for="id_address" class="input-label">Adresse</label>
+    </div>
+
+    <div class="input-wrapper">
+      {% render_field userForm.username|attr:'required:true'  class="input-text" placeholder="" %}
+      <label for="id_username" class="input-label">Utilisateur</label>
+    </div>
+    <div class="input-wrapper">
+      {% render_field userForm.password|attr:'required:true'  class="input-text" placeholder="" %}
+      <label for="id_password" class="input-label">Password</label>
+    </div>
+
+    <div class="input-wrapper">
+      <label for="id_profile_pic" class="input-select-label">Profile Picture</label>
+      {% render_field studentForm.profile_pic|attr:'required:true' class="input-text" placeholder="" %}
+    </div>
+
+    <div class="auth-buttons">
+      <button class="btn btn-main" type="submit">Inscription</button>
+    </div>  
+  </form>
+</div>
+{% endblock %}

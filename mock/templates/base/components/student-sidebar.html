@@ -1,0 +1,30 @@
+{% load static %}
+
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <img src="{% static "image/student.png" %}" alt="">
+    <h4>{{request.user.first_name}}</h4>
+    <h6>( Student )</h6>
+  </div>
+  <ul class="sidebar-list">
+    <li class="sidebar-item">
+      <a class="sidebar-link" href="/student/student-dashboard">
+        <span class="sidebar-link-img sidebar-link-img-dashboard"></span>
+        <span class="sidebar-link-text">Tableau de bord</span>
+      </a>
+    </li>
+    <li class="sidebar-item">
+      <a class="sidebar-link" href="/student/student-exam">
+        <span class="sidebar-link-img sidebar-link-img-exams"></span>
+        <span class="sidebar-link-text">Examens</span>
+      </a>
+    </li>
+    <li class="sidebar-item">
+      <a class="sidebar-link " href="/student/student-marks">
+        <span class="sidebar-link-img sidebar-link-img-grades"></span>
+        <span class="sidebar-link-text">Mes résultats</span>
+      </a>
+    </li>
+  </ul>
+</aside>
+

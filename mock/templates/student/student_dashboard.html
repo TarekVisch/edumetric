@@ -1,0 +1,19 @@
+{% extends "base/dashboard.html" %}
+{% load widget_tweaks %}
+
+{% block sidebar %}
+  {% include "base/components/student-sidebar.html" %}
+{% endblock %}
+
+{% block main %}
+    <div class="dashboard-grid">
+        <div class="dashboard-card blue">
+            <h3>Examens disponibles</h3>
+            <p>{{total_course}}</p>
+        </div>
+    <div class="dashboard-card green">
+            <h3>Nombre total de questions</h3>
+            <p>{{total_question}}</p>
+        </div>
+    <div>
+{% endblock main %}

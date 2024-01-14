@@ -1,0 +1,17 @@
+{% extends "base/dashboard.html" %}
+
+{% block sidebar %}
+  {% include "base/components/student-sidebar.html" %}
+{% endblock %}
+
+{% block main %}
+  <div class="dashboard-exams">
+    <h3>Mes résultats</h3>
+    {% for t in courses %}
+      <div class="dashboard-exams-card">
+        <p>{{t.course_name}}</p>
+        <a class="btn btn-secondary" href="{% url 'check-marks' t.id  %}">Voir la note</a>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock main %}

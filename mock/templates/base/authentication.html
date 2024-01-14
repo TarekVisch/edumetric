@@ -1,0 +1,13 @@
+{%extends "base/_base.html" %} 
+
+{% block content %}
+<div class="page">
+    {% include "base/components/navbar.html" %}
+    <div class="main">
+        <div class="auth">
+            {% block main %}{% endblock %}
+        </div>
+    </div>
+    {% include "base/components/footer.html" %}
+</div>
+{% endblock %}

@@ -5,13 +5,11 @@ name = "pypi"
 
 [packages]
 django = "*"
-django-jazzmin = "*"
-psycopg = {extras = ["binary"], version = "*"}
-pillow = "*"
 django-widget-tweaks = "*"
-django-crispy-forms = "*"
-crispy-bootstrap5 = "*"
-django-allauth = "*"
+pillow = "*"
+sqlparse = "*"
+pytz = "*"
+asgiref = "*"
 
 [dev-packages]
 

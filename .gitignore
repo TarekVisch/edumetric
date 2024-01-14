@@ -12,3 +12,7 @@ media
 
 # Visual Studio Code # 
 .vscode/*
+
+# CSS
+*.scss
+main.css.map

@@ -1,0 +1,19 @@
+{% load static %}
+<nav class="navbar">
+  <div class="navbar-logo">
+    <a href="/">
+      <img src="{% static 'images/logo.svg' %}" alt="Edumetric" />
+    </a>
+  </div>
+
+  <ul class="navbar-list">
+    <li class="navbar-item">
+      <a href="/student/studentclick" class="btn btn-nav">Étudiant</a>
+    </li>
+    <li class="navbar-item">
+      <a href="/teacher/teacherclick" class="btn btn-nav">Enseignant</a>
+    </li>
+    <a href="/adminclick" class="btn btn-nav">Administrateur</a>
+    <a href="/contactus" class="btn btn-nav">Contactez nous</a>
+  </ul>
+</nav>

@@ -1,0 +1,11 @@
+{% extends "base/_base.html" %}
+
+{% block content %}
+<div class="page">
+    {% include "base/components/navbar.html" %}
+    <main class="main main-home">
+        {% block main %}{% endblock %}
+    </main>
+    {% include "base/components/footer.html" %}
+</div>
+{% endblock %}

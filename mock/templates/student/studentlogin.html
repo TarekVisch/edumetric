@@ -1,0 +1,26 @@
+{% extends "base/authentication.html" %}
+{% block title %}Connexion{% endblock%}
+{% load widget_tweaks %}
+{% load static %}
+{% block main %}
+<div class="auth-container">
+  <form method="post" class="auth-form">
+    {% csrf_token %}
+    <h1>Connexion de l'étudiant</h1>
+    <div class="input-wrapper">
+        {% render_field form.username class="input-text" autocomplete="off" placeholder="" %}
+        <label for="id_username" class="input-label">Utilisateur</label>
+    </div>
+    <div class="input-wrapper">
+        {% render_field form.password class="input-text" autocomplete="off" placeholder="" %}
+        <label for="id_password" class="input-label">Mot de passe</label>
+    </div>
+
+    <div class="auth-buttons">
+      <button class="btn btn-main" type="submit">Connexion</button>
+    </div>
+
+  </form>
+  <img src="{% static 'images/signin-image.jpg' %}" alt="" />
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base/dashboard.html" %}
+
+{% block sidebar %}
+  {% include "base/components/student-sidebar.html" %}
+{% endblock %}
+
+{% block main %}
+  <div class="dashboard-exams">
+    <h3>Détails de l'examen</h3>
+    <p>L'examen: {{course.course_name}}</p>
+    <p>Nombre de questions: {{total_questions}}</p>
+    <p>La note: {{total_marks}}</p>
+    <div class="dashboard-tale-exams-note">
+        <h4>À NOTER</h4>
+        <ul>
+            <li>Toutes les questions sont des QCM (questions à choix multiples).</li>
+            <li>Un seul choix est correct parmi ceux proposés.</li>
+            <li>Chaque question est assortie d'une note différente.</li>
+            <li>
+                Si vous appuyez sur rafraîchir ou retournez à la page précédente, 
+                il y aura une nouvelle question pour vous et la question sur 
+                laquelle vous étiez sera comptée comme nombre d'essais.
+            <li>
+            <li>Les questions sont présentées de manière aléatoire.</li>
+            <li>Vous pourrez consulter vos notes immédiatement après avoir soumis votre réponse.</li>
+        </ul>
+    </div>
+    <a href="{% url 'start-exam' course.id  %}" class="btn btn-main">Passer l'examen</a>
+  </div>
+{% endblock main %}

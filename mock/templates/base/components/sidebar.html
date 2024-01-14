@@ -1,0 +1,45 @@
+{% load static %}
+
+<aside class="sidebar">
+  <ul class="sidebar-list">
+    {% if user.is_authenticated and user.role == "student" %}
+    <li class="sidebar-item">
+      <a class="sidebar-link {% if request.path == "/student/" %}active{% endif %}" href="{% url 'student_home' %}">
+        <span class="sidebar-link-img sidebar-link-img-dashboard"></span>
+        <span class="sidebar-link-text">Tableau de bord</span>
+      </a>
+    </li>
+    <li class="sidebar-item">
+      <a class="sidebar-link {% if request.path == "/student/exams/" %}active{% endif %}" href="{% url 'student_exams' %}">
+        <span class="sidebar-link-img sidebar-link-img-exams"></span>
+        <span class="sidebar-link-text">Examens</span>
+      </a>
+    </li>
+    <li class="sidebar-item">
+      <a class="sidebar-link  {% if request.path == "/student/results/" %}active{% endif %}" href="{% url 'student_results' %}">
+        <span class="sidebar-link-img sidebar-link-img-grades"></span>
+        <span class="sidebar-link-text">Mes résultats</span>
+      </a>
+    </li>
+    {% elif user.is_authenticated and user.role == "teacher" %}
+    <li class="sidebar-item">
+      <a class="sidebar-link {% if request.path == "/teacher/" %}active{% endif %}" href="{% url "teacher_home" %}">
+        <span class="sidebar-link-img sidebar-link-img-dashboard"></span>
+        <span class="sidebar-link-text">Tableau de bord</span>
+      </a>
+    </li>
+    <li class="sidebar-item">
+      <a class="sidebar-link {% if request.path == "/teacher/exams" %}active{% endif %}" href="#">
+        <span class="sidebar-link-img sidebar-link-img-courses"></span>
+        <span class="sidebar-link-text">Gérer les cours</span>
+      </a>
+    </li>
+    <li class="sidebar-item">
+      <a class="sidebar-link {% if request.path == "/teacher/questions" %}active{% endif %}"  href="#">
+        <span class="sidebar-link-img sidebar-link-img-questions"></span>
+        <span class="sidebar-link-text">Gérer les questions</span>
+      </a>
+    </li>
+    {% endif %}
+  </ul>
+</aside>

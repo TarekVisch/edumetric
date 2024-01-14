@@ -1,0 +1,16 @@
+{% load static %}
+<nav class="navbar">
+  <div class="navbar-logo">
+    <a href="/">
+      <img src="{% static 'images/logo.svg' %}" alt="Edumetric" />
+    </a>
+  </div>
+
+  <ul class="navbar-list">
+    <li class="navbar-item">
+      <a class="btn btn-icon" href="/logout">
+        <img src="{% static 'images/icons/logout.svg' %}" alt="User" />
+      </a>
+    </li>
+  </ul>
+</nav>
