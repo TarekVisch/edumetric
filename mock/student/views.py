@@ -100,7 +100,7 @@ def calculate_marks_view(request):
         result.student=student
         result.save()
 
-        return HttpResponseRedirect('view-result')
+        return HttpResponseRedirect('student-marks')
 
 
 

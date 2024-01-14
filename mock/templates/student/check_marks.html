@@ -1,56 +1,29 @@
-{% extends 'student/studentbase.html' %}
-{% block content %}
-{%load static%}
+{% extends "base/dashboard.html" %} 
 
-<head>
-  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+{% block sidebar %} 
+{% include "base/components/student-sidebar.html" %}
+{% endblock %} 
 
-  <style media="screen">
-    a:link {
-      text-decoration: none;
-    }
-
-    h6 {
-      text-align: center;
-    }
-
-    .row {
-      margin: 100px;
-    }
-  </style>
-</head>
-<br><br>
-<div class="container">
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h6 class="panel-title">My Marks</h6>
+{% block main %}
+<div class="dashboard-exams">
+  <h3>Mes résultats</h3>
+  <div class="dashboard-exams-table">
+    <div class="dashboard-exams-table-header">
+      <div>Examen</div>
+      <div>Note</div>
+      <div>Numero de tentatives</div>
+      <div>Examen passé à</div>
     </div>
-    <table class="table table-hover table-bordered" id="dev-table">
-      <thead>
-        <tr>
-
-          <th>Course</th>
-          <th>Total Marks</th>
-          <th>Number of Attempts</th>
-          <th>Exam Date</th>
-        </tr>
-      </thead>
+    <div class="dashboard-exams-table-body">
       {% for t in results %}
-      <tr>
-
-        <td> {{t.exam}}</td>
-        <td> {{t.marks}}</td>
-        <td>Attempt {{ forloop.counter }}</td>
-        <td> {{t.date}}</td>
-        
-        
-      </tr>
+      <div class="dashboard-exams-table-row">
+        <div>{{t.exam}}</div>
+        <div>{{t.marks}}</div>
+        <div>{{ forloop.counter }}</div>
+        <div>{{t.date}}</div>
+      </div>
       {% endfor %}
-    </table>
+    </div>
   </div>
 </div>
-
-<br><br><br><br><br><br>
-{% endblock content %}
+{% endblock main %}
