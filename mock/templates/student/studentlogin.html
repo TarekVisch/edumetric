@@ -6,7 +6,7 @@
 <div class="auth-container">
   <form method="post" class="auth-form">
     {% csrf_token %}
-    <h1>Connexion de l'étudiant</h1>
+    <h1>Accès étudiant</h1>
     <div class="input-wrapper">
         {% render_field form.username class="input-text" autocomplete="off" placeholder="" %}
         <label for="id_username" class="input-label">Utilisateur</label>

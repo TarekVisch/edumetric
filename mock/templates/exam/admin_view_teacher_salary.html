@@ -1,56 +1,32 @@
-{% extends 'exam/adminbase.html' %}
-{% block content %}
-{%load static%}
+{% extends "base/dashboard.html" %} 
+{% load static %}
 
-<head>
-  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+{% block sidebar %} 
+{% include "base/components/admin-sidebar.html" %}
+{% endblock %} 
 
-  <style media="screen">
-    a:link {
-      text-decoration: none;
-    }
-
-    h6 {
-      text-align: center;
-    }
-
-    .row {
-      margin: 100px;
-    }
-  </style>
-</head>
-<br><br>
-<div class="container">
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h6 class="panel-title">Teachers Salary</h6>
+{% block main %}
+<div class="dashboard-exams">
+  <h3>Mes résultats</h3>
+  <div class="dashboard-exams-table">
+    <div class="dashboard-exams-table-header">
+      <div>Nom</div>
+      <div>Photo</div>
+      <div>Téléphone</div>
+      <div>Salair</div>
     </div>
-    <table class="table table-hover table-bordered" id="dev-table">
-      <thead>
-        <tr>
-
-          <th>Name</th>
-          <th>Photo</th>
-          <th>Contact</th>
-          <th>Salary</th>
-         
-          
-        </tr>
-      </thead>
+    <div class="dashboard-exams-table-body">
       {% for t in teachers %}
-      <tr>
-
-        <td> {{t.get_name}}</td>
-        <td> <img src="{% static t.profile_pic.url %}" alt="Profile Pic" height="40px" width="40px" /></td>
-        <td>{{t.mobile}}</td>
-        <td>${{t.salary}}</td>
-        </tr>
+      <div class="dashboard-exams-table-row">
+        <div>{{t.get_name}}</div>
+        <div>
+          <img src="{% static t.profile_pic.url %}" alt="Profile Pic" height="40px" width="40px" />
+        </div>
+        <div>{{t.mobile}}</div>
+        <div>${{t.salary}}</div>
+      </div>
       {% endfor %}
-    </table>
+    </div>
   </div>
 </div>
-
-<br><br><br><br><br><br>
-{% endblock content %}
+{% endblock main %}

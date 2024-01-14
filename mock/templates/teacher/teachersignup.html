@@ -1,76 +1,48 @@
-<!DOCTYPE html>
+{% extends "base/authentication.html" %}
+{% block title %}Connexion{% endblock%}
 {% load widget_tweaks %}
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <style>
-
-        form{
-           margin: 50px; 
-          
-        }
-
-    </style>
-  </head>
-  <body>
-    {% include "exam/navbar.html" %}
- 
-
-
-<br><br><br>
-<div class="container">
-  <h3 style="text-align: center;">Teacher Signup Form</h3>
-<form method="POST" autocomplete="off" enctype="multipart/form-data">
+{% load static %}
+{% block main %}
+<div class="auth-container">
+  <img src="{% static 'images/signup-image.jpg' %}" alt="" />
+  <form method="POST" autocomplete="off" enctype="multipart/form-data" class="auth-form">
     {% csrf_token %}
-    
-    <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="first_name">First Name</label>
-          {% render_field userForm.first_name|attr:'required:true'  class="form-control"  placeholder="First Name" %}
-        </div>
-        <div class="form-group col-md-6">
-          <label for="last_name">Last Name</label>
-          {% render_field userForm.last_name|attr:'required:true'  class="form-control" placeholder="Last Name" %}
-        </div>
-      </div>
+    <h1>Inscription des étudiants</h1>
+    <div class="input-wrapper">
+      {% render_field userForm.first_name|attr:'required:true' class="input-text" placeholder="" %}
+      <label for="id_first_name" class="input-label">prénom</label>
+    </div>
+    <div class="input-wrapper">
+      {% render_field userForm.last_name|attr:'required:true'  class="input-text" placeholder="" %}
+      <label for="id_last_name" class="input-label">Nom</label>
+    </div>
 
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="mobile">Contact</label>
-          {% render_field teacherForm.mobile|attr:'required:true'  class="form-control" placeholder="Contact Number" %}
-        </div>
-        <div class="form-group col-md-6">
-          <label for="address">Address</label>
-          {% render_field teacherForm.address|attr:'required:true'  class="form-control" placeholder="Address" %}
-        </div>
-      </div>
+    <div class="input-wrapper">
+      {% render_field teacherForm.mobile|attr:'required:true'  class="input-text" placeholder="" %}
+      <label for="id_mobile" class="input-label">Numéro de contact</label>
+    </div>
+    <div class="input-wrapper">
+      {% render_field teacherForm.address|attr:'required:true'  class="input-text" placeholder="" %}
+      <label for="id_address" class="input-label">Adresse</label>
+    </div>
 
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="username">Username</label>
-          {% render_field userForm.username|attr:'required:true'  class="form-control" placeholder="username" %}
-        </div>
-        <div class="form-group col-md-6">
-          <label for="inputPassword4">Password</label>
-          {% render_field userForm.password|attr:'required:true'  class="form-control" placeholder="password" %}
-        </div>
-      </div>
+    <div class="input-wrapper">
+      {% render_field userForm.username|attr:'required:true'  class="input-text" placeholder="" %}
+      <label for="id_username" class="input-label">Utilisateur</label>
+    </div>
+    <div class="input-wrapper">
+      {% render_field userForm.password|attr:'required:true'  class="input-text" placeholder="" %}
+      <label for="id_password" class="input-label">Password</label>
+    </div>
 
-      <div class="form-row">
-        <div class="form-group col-md-12">
-          <label for="profile_pic">Profile Picture</label>
-          {% render_field teacherForm.profile_pic|attr:'required:true' class="form-control" placeholder="" %}
-        </div>
-        
-      </div>
+    <div class="input-wrapper">
+      <label for="id_profile_pic" class="input-select-label">Profile Picture</label>
+      {% render_field teacherForm.profile_pic|attr:'required:true' class="input-text" placeholder="" %}
+    </div>
 
-
-    <button type="submit" class="btn btn-success" style="border-radius:0px;">Sign Up</button>
+    <div class="auth-buttons">
+      <button class="btn btn-main" type="submit">Inscription</button>
+    </div>  
   </form>
 </div>
-
-
-<br><br>
-{% include "exam/footer.html" %}
-  </body>
-</html>
+{% endblock %}

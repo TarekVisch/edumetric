@@ -1,55 +1,33 @@
-{% extends 'teacher/teacherbase.html' %}
-{% block content %}
-{%load static%}
+{% extends "base/dashboard.html" %} 
+{% load static %}
 
-<head>
-  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+{% block sidebar %} 
+{% include "base/components/teacher-sidebar.html" %}
+{% endblock %} 
 
-  <style media="screen">
-    a:link {
-      text-decoration: none;
-    }
-
-    h6 {
-      text-align: center;
-    }
-
-    .row {
-      margin: 100px;
-    }
-  </style>
-</head>
-<br><br>
-<div class="container">
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h6 class="panel-title">Available Questions</h6>
+{% block main %}
+<div class="dashboard-exams">
+  <h3>Mes résultats</h3>
+  <div class="dashboard-exams-table">
+    <div class="dashboard-exams-table-header">
+      <div>Questions</div>
+      <div>Note</div>
+      <div>Actions</div>
     </div>
-    <table class="table table-hover table-bordered" id="dev-table">
-      <thead>
-        <tr>
-
-          <th>Question</th>
-         
-          <th>Marks</th>
-          <th>Action</th>
-        </tr>
-      </thead>
+    <div class="dashboard-exams-table-body">
       {% for c in questions %}
-      <tr>
-
-        <td> {{c.question}}</td>
-        
-        <td>{{c.marks}}</td>
-        <td><a class="btn btn-danger btn-xs" style="border-radius: 0%;" href="{% url 'remove-question' c.id  %}"><span class="glyphicon glyphicon-trash"></span></a></td>
-        
-      </tr>
+      <div class="dashboard-exams-table-row">
+        <div>{{c.question}}</div>
+        <div>{{c.marks}}</div>
+        <div>
+          <a class="dashboard-exams-table-row-action" href="{% url 'remove-question' c.id  %}">
+            <i class="fas fa-trash"></i>
+          </a>
+        </div>
+      </div>
       {% endfor %}
-    </table>
+    </div>
   </div>
 </div>
+{% endblock main %}
 
-<br><br><br><br><br><br>
-{% endblock content %}

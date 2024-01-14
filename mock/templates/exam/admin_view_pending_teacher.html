@@ -1,59 +1,41 @@
-{% extends 'exam/adminbase.html' %}
-{% block content %}
-{%load static%}
+{% extends "base/dashboard.html" %} 
+{% load static %}
 
-<head>
-  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+{% block sidebar %} 
+{% include "base/components/admin-sidebar.html" %}
+{% endblock %} 
 
-  <style media="screen">
-    a:link {
-      text-decoration: none;
-    }
-
-    h6 {
-      text-align: center;
-    }
-
-    .row {
-      margin: 100px;
-    }
-  </style>
-</head>
-<br><br>
-<div class="container">
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h6 class="panel-title">Pending Teachers</h6>
+{% block main %}
+<div class="dashboard-exams">
+  <h3>Mes résultats</h3>
+  <div class="dashboard-exams-table">
+    <div class="dashboard-exams-table-header">
+      <div>Nom</div>
+      <div>Photo</div>
+      <div>Téléphone</div>
+      <div>Adresse</div>
+      <div>Actions</div>
     </div>
-    <table class="table table-hover table-bordered" id="dev-table">
-      <thead>
-        <tr>
-
-          <th>Name</th>
-          <th>Photo</th>
-          <th>Contact</th>
-          <th>Address</th>
-         
-          <th>Actions</th>
-        </tr>
-      </thead>
+    <div class="dashboard-exams-table-body">
       {% for t in teachers %}
-      <tr>
-
-        <td> {{t.get_name}}</td>
-        <td> <img src="{% static t.profile_pic.url %}" alt="Profile Pic" height="40px" width="40px" /></td>
-        <td>{{t.mobile}}</td>
-        <td>{{t.address}}</td>
-        
-        <td><a class="btn btn-success btn-sm" style="border-radius: 0%;" href="{% url 'approve-teacher' t.id  %}"><span class="glyphicon glyphicon-ok"></span></a>
-        <a class="btn btn-danger btn-sm" style="border-radius: 0%;" href="{% url 'reject-teacher' t.id  %}"><span class="	glyphicon glyphicon-remove"></span></a></td>
-      </tr>
+      <div class="dashboard-exams-table-row">
+        <div>{{t.get_name}}</div>
+        <div>
+          <img src="{% static t.profile_pic.url %}" alt="Photo de Profile" height="40px" width="40px" />
+        </div>
+        <div>{{t.mobile}}</div>
+        <div>{{t.address}}</div>
+        <div>
+          <a class="dashboard-exams-table-row-action" href="{% url 'approve-teacher' t.id  %}">
+            <i class="fas fa-check"></i>
+          </a>
+          <a class="dashboard-exams-table-row-action" href="{% url 'reject-teacher' t.id  %}">
+            <i class="fas fa-times"></i>
+          </a>
+        </div>
+      </div>
       {% endfor %}
-    </table>
+    </div>
   </div>
 </div>
-
-<br><br><br><br><br><br>
-{% endblock content %}
+{% endblock main %}

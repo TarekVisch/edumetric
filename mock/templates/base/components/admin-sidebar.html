@@ -1,0 +1,42 @@
+{% load static %}
+
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <img src="{% static "image/admin.png" %}" alt="">
+    <h4>{{request.user.username}}</h4>
+    <h6>( Administrateur )</h6>
+  </div>
+  <ul class="sidebar-list">
+    <li class="sidebar-item">
+      <a class="sidebar-link" href="/admin-dashboard">
+        <span class="sidebar-link-img sidebar-link-img-dashboard"></span>
+        <span class="sidebar-link-text">Tableau de bord</span>
+      </a>
+    </li>
+    <li class="sidebar-item">
+      <a class="sidebar-link" href="/admin-teacher">
+        <span class="sidebar-link-img sidebar-link-img-teachers"></span>
+        <span class="sidebar-link-text">Section enseignants</span>
+      </a>
+    </li>
+    <li class="sidebar-item">
+      <a class="sidebar-link " href="/admin-student">
+        <span class="sidebar-link-img sidebar-link-img-students"></span>
+        <span class="sidebar-link-text">Section étudiants</span>
+      </a>
+    </li>
+    <li class="sidebar-item">
+      <a class="sidebar-link " href="/admin-course">
+        <span class="sidebar-link-img sidebar-link-img-exams"></span>
+        <span class="sidebar-link-text">Gérer les examens</span>
+      </a>
+    </li>
+    <li class="sidebar-item">
+      <a class="sidebar-link " href="/admin-question">
+        <span class="sidebar-link-img sidebar-link-img-grades"></span>
+        <span class="sidebar-link-text">Gérer les questions</span>
+      </a>
+    </li>
+  </ul>
+</aside>
+

@@ -1,65 +1,52 @@
-{% extends 'exam/adminbase.html' %}
-{% load widget_tweaks %}
-{% block content %}
-<head>
-  <style media="screen">
-    input[type=text], select,input[type=number] ,input[type=password], textarea{
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
+{% extends "base/dashboard.html" %} 
+{% load widget_tweaks %} 
+{% load static %}
 
-  input[type=submit] {
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
+{% block sidebar %}
+  {% include "base/components/admin-sidebar.html" %} 
+{% endblock %} 
 
-  input[type=submit]:hover {
-    background-color: #45a049;
-  }
+{% block main %}
+<div class="dashboard-form">
+  <h3 style="margin-bottom: 2.5rem">Modification de l'etudiant</h3>
+  <form method="POST" autocomplete="off">
+    {%csrf_token%}
+    <div class="input-wrapper" style="margin-bottom: 1.5rem">
+      {% render_field userForm.first_name class="input-class" placeholder="" %}
+      <label for="first_name" class="input-label">First Name</label>
+    </div>
 
+    <div class="input-wrapper" style="margin-bottom: 1.5rem">
+      {% render_field userForm.last_name class="input-class" placeholder="" %}
+      <label for="last_name" class="input-label">Last Name</label>
+    </div>
 
-  </style>
+    <div class="input-wrapper" style="margin-bottom: 1.5rem">
+      {% render_field studentForm.mobile class="input-class" placeholder="" %}
+      <label for="mobile" class="input-label">Contact</label>
+    </div>
 
+    <div class="input-wrapper" style="margin-bottom: 1.5rem">
+      {% render_field studentForm.address class="input-class" placeholder="" %}
+      <label for="address" class="input-label">Address</label>
+    </div>
 
-</head>
+    <div class="input-wrapper" style="margin-bottom: 1.5rem">
+      {% render_field userForm.username class="input-class" placeholder="" %}
+      <label for="username" class="input-label">Username</label>
+    </div>
 
-<br><br>
-<h2 style="text-align:center;">Update Student</h2>
-<div>
-  <form method="post" autocomplete="off" enctype="multipart/form-data" style="margin-left:200px;margin-right:200px;">
-      {% csrf_token %}
-        <label for="first_name">First Name</label>
-        {% render_field userForm.first_name class="form-control" placeholder="First Name" %}
-        <label for="last_name">Last Name</label>
-        {% render_field userForm.last_name class="form-control" placeholder="Last Name" %}
-          <label for="mobile">Contact</label>
-          {% render_field studentForm.mobile class="form-control" placeholder="Mobile" %}
-            <label for="address">Address</label>
-          {% render_field studentForm.address class="form-control" placeholder="Address" %}
-          
-        <label for="username">Username</label>
-        {% render_field userForm.username class="form-control" placeholder="Username" %}
-          <label for="password">Password</label>
-        {% render_field userForm.password class="form-control" placeholder="Password" %} <br><br>
-        <label for="profile_pic">Profile Picture</label>
-          {% render_field studentForm.profile_pic class="form-control" placeholder="Profile Picture" %}
-<br><br>
-    <input type="submit" value="Update" style="border-radius:0px;">
+    <div class="input-wrapper" style="margin-bottom: 1.5rem">
+      {% render_field userForm.password class="input-class" placeholder="" %}
+      <label for="password" class="input-label">Password</label>
+    </div>
+
+    {% comment %} <div class="input-wrapper" style="margin-bottom: 1.5rem">
+      <label for="profile_pic" class="input-select-label">Profile Picture</label>
+      {% render_field studentForm.profile_pic class="input-class" placeholder="Profile Picture" %}
+    </div> {% endcomment %}
+
+    <button type="submit" class="btn btn-main">Modifier</button>
   </form>
 </div>
-
-
-
-<br><br><br><br><br><br><br><br>
-{% endblock content %}
+{% endblock %}
